@@ -365,6 +365,10 @@
   height: 424px;
 }
 
+#section-about.desactive {
+  display: none;
+}
+
 .container-about {
   width: 310px;
   display: flex;
@@ -402,6 +406,7 @@
 
 .image-about {
   display: none;
+  width: 100%;
 }
 
 @media screen and (min-width: 768px) {
@@ -426,5 +431,146 @@
   .container-about p {
     font-size: 18px;
     line-height: 28.8px;
+  }
+}
+
+/* Footer */
+
+#footer {
+  background-color: var(--color-black-0);
+  padding: 0px 25px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-white-0);
+}
+
+#footer.desactive {
+  display: none;
+}
+
+.main-footer {
+  flex-wrap: wrap;
+}
+
+.container-footer img {
+  margin: 81px 0px 24px 0px;
+}
+
+.container-footer p {
+  font-size: 12px;
+  width: 231px;
+  line-height: 19.2px;
+  margin-bottom: 61.8px;
+}
+
+.menu-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  margin-bottom: calc(43px - 19px);
+}
+
+.menu-footer h4 {
+  color: var(--color-green);
+
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  margin-bottom: calc(24px - 19px);
+}
+
+.menu-footer .nav-link {
+  color: var(--color-white-0);
+  font-size: 12px;
+  transition: 0.6s;
+}
+
+.menu-footer .nav-link:hover {
+  color: var(--color-green);
+}
+
+.network-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 24.19px;
+}
+
+.network-footer span {
+  font-size: 12px;
+}
+
+.icons-footer {
+  display: flex;
+  gap: 14.38px;
+  margin-bottom: 40.19px;
+}
+
+.container-infos {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-infos P {
+  font-size: 12px;
+  width: 227px;
+  margin-bottom: 16px;
+}
+
+#tel,
+#email {
+  font-size: 14px;
+}
+
+#tel {
+  color: var(--color-white-0);
+  font-weight: 600;
+}
+
+#email {
+  margin: 4px 0px 16px 0px;
+  color: var(--color-green-light);
+  font-weight: 500;
+}
+
+.container-infos .whatsapp {
+  width: 138px;
+  margin-bottom: 40px;
+}
+
+.container-copyright {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0px 29.36px 0px;
+  border-top: 1px solid var(--color-black-2);
+}
+
+.container-copyright span {
+  font-size: 12px;
+  color: var(--color-grey-2);
+}
+
+@media screen and (min-width: 768px) {
+  #footer {
+    padding: 0px 135px;
+  }
+  .main-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 74px;
+  }
+
+  #logo-footer {
+    margin-top: calc(81px - 74px);
+  }
+
+  .network-footer {
+    align-self: flex-end;
+  }
+
+  .container-infos {
+    text-align: end;
+    align-items: flex-end;
   }
 }
