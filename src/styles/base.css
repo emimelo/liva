@@ -1,0 +1,22 @@
+:root {
+  --font: "Urbanist", sans-serif;
+
+  --color-white-0: #FFFFFF;
+  --color-white-1: #F2F2F2;
+
+  --color-black-0: #000000;
+  --color-black-1: #03110D;
+
+  --color-green: #1AA584;
+  --color-green-focus: #48B79D;
+  --color-green-lime: #DCF8B1;
+  --color-green-light: #D1EDE6;
+  --color-red: #EB5757;
+
+  --color-grey-0: #A0A0A0;
+  --color-grey-1: #979797;
+  --color-grey-2: #6F6F6F;
+  --color-grey-3: #393939;
+
+  --shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+}
