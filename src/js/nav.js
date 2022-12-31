@@ -8,5 +8,8 @@ export function toggleNav() {
 
 const list = document.querySelectorAll(".nav-item");
 list.forEach((li) =>
-  li.addEventListener("click", () => nav.classList.remove("active"))
+  li.addEventListener("click", () => {
+    nav.classList.remove("active");
+    btn.classList.remove("active");
+  })
 );
