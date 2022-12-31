@@ -1,18 +1,26 @@
-function toggleNav() {
-  const nav = document.querySelector(".nav-menu");
-  const sections = document.querySelectorAll("section");
-  const footer = document.querySelector("#footer");
-  const img = document.querySelector("#svg-menu");
+import cards from "./cards.js";
+import { createCards } from "./mosaic.js";
+import { toggleNav } from "./nav.js";
+import { toggleFilter } from "./filter.js";
+import { validators } from "./form.js";
+import { validatorsDesk } from "./formDesktop.js";
 
-  nav.classList.toggle("active");
-  img.classList.toggle("open");
-  footer.classList.toggle("desactive");
-  sections.forEach((section) => section.classList.toggle("desactive"));
+createCards(cards);
 
-  img.className === "open"
-    ? (img.src = "src/assets/btn_close.svg")
-    : (img.src = "src/assets/btn_open.svg");
-}
+const btnNav = document.getElementById("btn-mobile");
+btnNav.addEventListener("click", toggleNav);
 
-// const list = document.querySelectorAll(".nav-item");
-// list.forEach((li) => console.log(li.addEventListener("click", toggleNav)));
+const btnFilter = document.getElementById("btn-filter");
+btnFilter.addEventListener("click", toggleFilter);
+
+const forms = document.querySelectorAll(".form");
+
+forms[0].addEventListener("submit", (e) => {
+  e.preventDefault();
+  validators();
+});
+
+forms[1].addEventListener("submit", (e) => {
+  e.preventDefault();
+  validatorsDesk();
+});
