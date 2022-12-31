@@ -22,7 +22,7 @@ export function createCards(cards) {
 
       const image = document.createElement("img");
       image.className = "image-card";
-      image.src = elem.src2x;
+      image.src = elem.src;
       image.loading = "lazy";
       image.alt = `Image ${elem.title}`;
 
@@ -106,7 +106,7 @@ export function createFirstCard(card) {
 
   const image = document.createElement("img");
   image.className = "image-card";
-  image.src = card.src2x;
+  image.src = card.src;
   image.loading = "lazy";
   image.alt = `Image ${card.title}`;
 
