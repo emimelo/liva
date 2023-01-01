@@ -1,15 +1,13 @@
-const nav = document.querySelector(".nav-menu");
-const btn = document.querySelector("#btn-mobile");
-
 export function toggleNav() {
-  nav.classList.toggle("active");
-  btn.classList.toggle("active");
+  $(".nav-menu").toggleClass("active");
+  $(this).toggleClass("active");
 }
 
-const list = document.querySelectorAll(".nav-item");
-list.forEach((li) =>
-  li.addEventListener("click", () => {
-    nav.classList.remove("active");
-    btn.classList.remove("active");
-  })
-);
+$(".nav-item").each(function () {
+  $(this).on("click", function (e) {
+    $(".nav-menu").removeClass("active");
+    $("#btn-mobile").removeClass("active");
+  });
+});
+
+

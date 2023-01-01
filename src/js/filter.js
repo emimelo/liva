@@ -2,17 +2,13 @@ import cards from "./cards.js";
 import { createCards } from "./mosaic.js";
 
 export function toggleFilter() {
-  const container = document.querySelector(".container-filter");
-  const btn = document.querySelector("#btn-filter");
-  const img = document.querySelector("#svg-filter");
+  $(".container-filter").toggleClass("active");
+  $(this).toggleClass("active");
+  $("#svg-filter").toggleClass("active");
 
-  container.classList.toggle("active");
-  btn.classList.toggle("active");
-  img.classList.toggle("active");
-
-  img.className === "active"
-    ? (img.src = "src/assets/icons/btn_close.svg")
-    : (img.src = "src/assets/icons/filter.svg");
+  $("#svg-filter").hasClass("active")
+    ? $("#svg-filter").attr("src", "src/assets/icons/btn_close.svg")
+    : $("#svg-filter").attr("src", "src/assets/icons/filter.svg");
 }
 
 function filterLocation(location) {
@@ -24,8 +20,7 @@ function filterLocation(location) {
   }
 }
 
-const localization = document.getElementById("localizacao");
-localization.addEventListener("change", (e) => filterLocation(e.target.value));
+$("#localizacao").on("change", (e) => filterLocation(e.target.value));
 
 function filterImmobile(immobile) {
   if (immobile === "Tipo de imóvel") {
@@ -36,8 +31,7 @@ function filterImmobile(immobile) {
   }
 }
 
-const immobile = document.getElementById("imovel");
-immobile.addEventListener("change", (e) => filterImmobile(e.target.value));
+$("#imovel").on("change", (e) => filterImmobile(e.target.value));
 
 function filterStage(stage) {
   if (stage === "Estágio do empreendimento") {
@@ -48,5 +42,4 @@ function filterStage(stage) {
   }
 }
 
-const stage = document.getElementById("empreendimento");
-stage.addEventListener("change", (e) => filterStage(e.target.value));
+$("#empreendimento").on("change", (e) => filterStage(e.target.value));

@@ -6,26 +6,49 @@ const email = document.getElementById("email");
 const message = document.getElementById("mensagem");
 
 export function validators() {
+  let status = true;
+
   const nameValue = name.value.trim();
   const telValue = phone.value.trim();
   const emailValue = email.value.trim();
   const messageValue = message.value.trim();
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const telRegex = /^\s?(?:\()[0-9]{2}(?:\))\s?[0-9]{4,5}(?:-)[0-9]{4}$/;
 
   nameValue.length < 3 ? errorValidation(name) : successValidation(name);
 
   messageValue === "" ? errorValidation(message) : successValidation(message);
 
-  !telRegex.test(telValue)
-    ? errorValidation(
-      phone,
-      "O Telefone deve ter o seguinte formato: '(xx) xxxxx-xxxx'"
-    )
-    : successValidation(phone);
+  if (nameValue.length < 3) {
+    errorValidation(name);
+    status = false;
+  } else {
+    successValidation(name);
+  }
 
-  !emailRegex.test(emailValue)
-    ? errorValidation(email)
-    : successValidation(email);
+  if (messageValue === "") {
+    errorValidation(message);
+    status = false;
+  } else {
+    successValidation(message);
+  }
+
+  if (telValue === "") {
+    errorValidation(
+      phone,
+      "*O Telefone deve ter o seguinte formato: '(xx) xxxxx-xxxx'"
+    );
+    status = false;
+  } else {
+    successValidation(phone);
+  }
+
+  if (!emailRegex.test(emailValue)) {
+    errorValidation(email);
+    status = false;
+  } else {
+    successValidation(email);
+  }
+
+  return status;
 }

@@ -4,23 +4,50 @@ import { toggleNav } from "./nav.js";
 import { toggleFilter } from "./filter.js";
 import { validators } from "./form.js";
 import { validatorsDesk } from "./formDesktop.js";
+import { handlePhone } from "./maskPhone.js";
 
 createCards(cards);
 
-const btnNav = document.getElementById("btn-mobile");
-btnNav.addEventListener("click", toggleNav);
+$("#btn-mobile").on("click", toggleNav);
 
-const btnFilter = document.getElementById("btn-filter");
-btnFilter.addEventListener("click", toggleFilter);
+$("#btn-filter").on("click", toggleFilter);
 
-const forms = document.querySelectorAll(".form");
-
-forms[0].addEventListener("submit", (e) => {
+$(".form")[0].addEventListener("submit", (e) => {
   e.preventDefault();
-  validators();
+
+  if (validators()) {
+    $("dialog").modal("show");
+    hashSemHash(e);
+    setTimeout(function () {
+      e.target.submit();
+    }, 2000);
+  }
 });
 
-forms[1].addEventListener("submit", (e) => {
+$(".form").on("submit", (e) => {
   e.preventDefault();
-  validatorsDesk();
+  if (validatorsDesk()) {
+    $("dialog").modal("show");
+    hashSemHash(e);
+    setTimeout(function () {
+      e.target.submit();
+    }, 2000);
+  }
 });
+
+$("#btn-close-modal").on("click", function () {
+  $("dialog").modal("hide");
+});
+
+$("#telefoneDesk").on("input", (e) => handlePhone(e));
+$("#telefone").on("input", (e) => handlePhone(e));
+
+$("select").on("click", function () {
+  $(this).toggleClass("close-select");
+});
+
+function hashSemHash(e) {
+  history.pushState("", document.title, location.pathname);
+
+  e.preventDefault();
+}
