@@ -12,7 +12,7 @@ $("#btn-mobile").on("click", toggleNav);
 
 $("#btn-filter").on("click", toggleFilter);
 
-$(".form")[0].addEventListener("submit", (e) => {
+$(".form")[0].on("submit", (e) => {
   e.preventDefault();
 
   if (validators()) {
