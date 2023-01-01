@@ -12,21 +12,10 @@ $("#btn-mobile").on("click", toggleNav);
 
 $("#btn-filter").on("click", toggleFilter);
 
-$(".form")[0].on("submit", (e) => {
-  e.preventDefault();
-
-  if (validators()) {
-    $("dialog").modal("show");
-    hashSemHash(e);
-    setTimeout(function () {
-      e.target.submit();
-    }, 2000);
-  }
-});
-
 $(".form").on("submit", (e) => {
   e.preventDefault();
-  if (validatorsDesk()) {
+
+  if (validators() || validatorsDesk()) {
     $("dialog").modal("show");
     hashSemHash(e);
     setTimeout(function () {
