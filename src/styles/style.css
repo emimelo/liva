@@ -1353,6 +1353,7 @@ textarea {
   display: flex;
   align-items: center;
   flex-direction: column;
+  text-align: center;
   justify-content: center;
 
   height: 300px;
@@ -1366,7 +1367,10 @@ textarea {
 dialog {
   display: none;
   z-index: 10000;
-  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+
   padding: 3px;
   border: 0;
   border-radius: 4px;
@@ -1382,10 +1386,6 @@ dialog button {
   background-color: var(--color-white-1);
   border: 2px solid var(--color-grey-0);
   transition: 0.6s;
-}
-
-dialog button:hover {
-  border-color: var(--color-red);
 }
 
 dialog button img {
